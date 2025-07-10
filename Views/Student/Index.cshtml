@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Student>	
+
+<h1>Students</h1>
+<p>
+	<a class="btn btn-success" asp-action="Create" asp-controller="Student"> Create New Student</a>
+</p>
+<table class="table">
+
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Course</th>
+			<th>Enrollment Date</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var student in Model)
+		{
+			<tr>
+				<td>@student.Name</td>
+				<td>@student.Email</td>
+				<td>@student.Course</td>
+				<td>@student.EnrollmentDate.ToShortDateString()</td>
+				<td>
+					<a asp-action="Edit" asp-controller="Student" asp-route-id="@student.Id" class="btn btn-primary">Edit</a>
+					<a asp-action="Delete" asp-controller="Student" asp-route-id="@student.Id" class="btn btn-danger">Delete</a>
+				</td>
+			</tr>
+		}
+</table>
