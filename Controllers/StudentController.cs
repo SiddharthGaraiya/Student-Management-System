@@ -49,5 +49,17 @@ namespace Student_Management.Controllers
                 return View(student);
             }
         }
+
+        [HttpPost]
+        public IActionResult Edit([Bind("Id, Name , Email, Course, EnrollmentDate")] Student student) {
+            if (ModelState.IsValid)
+            {
+                _context.Students.Update(student);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(student);
+        }
+
     }
 }
