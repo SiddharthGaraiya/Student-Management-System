@@ -35,5 +35,19 @@ namespace Student_Management.Controllers
             }
             return View(student);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var student = _context.Students.Find(id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return View(student);
+            }
+        }
     }
 }
