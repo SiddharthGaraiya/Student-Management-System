@@ -74,5 +74,16 @@ namespace Student_Management.Controllers
                 return View(student);
             }
         }
+
+        public IActionResult DeleteConfirm (int id)
+        {
+            var student = _context.Students.Find(id);
+            if(student != null)
+            {
+                _context.Students.Remove(student);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
