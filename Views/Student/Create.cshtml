@@ -1,32 +1,38 @@
 ﻿@model Student
-
-<h1>Create Student</h1>
-
-<form asp-action="Create" asp-controller="Student" method="post">
-	<div class="form-group">
-		<label asp-for="Name"></label>
-		<input asp-for="Name" class="form-control" />
-		<span asp-validation-for="Name" class="text-danger"></span>
-	</div>
-
-	<div class="form-group">
-		<label asp-for="Email"></label>
-		<input asp-for="Email" class="form-control" />
-		<span asp-validation-for="Email" class="text-danger"></span>
-	</div>
-
-	<div class="form-group">
-		<label asp-for="Course"></label>
-		<input asp-for="Course" class="form-control" />
-		<span asp-validation-for="Course" class="text-danger"></span>
-	</div>
-	<div class="form-group">
-		<label asp-for="EnrollmentDate"></label>
-		<input asp-for="EnrollmentDate" class="form-control" type="date" />
-		<span asp-validation-for="EnrollmentDate" class="text-danger"></span>
-	</div>
-
-	<button type="submit" class="btn btn-primary mt-2">Create</button>	
-</form>
-
-<a class="btn btn-secondary mt-2" asp-action="Index" asp-controller="Student">Back to List</a>	
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <h3 class="card-title mb-0">Create Student</h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create" asp-controller="Student" method="post">
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Course" class="form-label">Course</label>
+                        <input asp-for="Course" class="form-control" />
+                        <span asp-validation-for="Course" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="EnrollmentDate" class="form-label">Enrollment Date</label>
+                        <input asp-for="EnrollmentDate" class="form-control" type="date" />
+                        <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a class="btn btn-secondary me-md-2" asp-action="Index" asp-controller="Student">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Create Student</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
