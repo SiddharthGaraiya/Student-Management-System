@@ -18,9 +18,22 @@ namespace Student_Management.Controllers
             return View(students);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View(); 
+        }
+
+        [HttpPost]
+        public IActionResult Create([Bind("Name , Email, Course, EnrollmentDate")]Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Students.Add(student);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(student);
         }
     }
 }
